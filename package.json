@@ -1,0 +1,27 @@
+{ 
+    "name" : "translation",
+    "version" : "0.1.23",
+    "description" : "A program to export set of folders for translation and import the translated folders into specific GitHub projects",
+    "author": "Soumya (SSundarr@uk.ibm.com)",
+    "main" : "ExportNls.js",
+    "config" : { 
+      "port" : "8080" 
+    },
+    "scripts" : {
+      "export" : "node ExportNls.js",
+      "import": "node ImportNls.js"
+    },
+    "repository" : { 
+      "type" : "git",
+      "url" : ""
+    },
+    "bugs": { 
+      "url" : "",
+      "email" : "SSundarr@uk.ibm.com"
+    },
+    "dependencies": {
+        "fs-extra": "4.0.1",
+        "find": "0.2.7",
+        "shelljs": "0.7.8"
+    }
+}
