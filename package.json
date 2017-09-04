@@ -13,10 +13,10 @@
     },
     "repository" : { 
       "type" : "git",
-      "url" : ""
+      "url" : "https://github.com/SoumyaSundar/translation.git"
     },
     "bugs": { 
-      "url" : "",
+      "url" : "https://github.com/SoumyaSundar/translation/issues",
       "email" : "SSundarr@uk.ibm.com"
     },
     "dependencies": {
