@@ -34,14 +34,17 @@ var tranversePathArray = [dashboard, homepage, quickstart, common]
 
 tranversePathArray.map((tranversePath) => {
   var outputFolder = path.join(`${exportPath}`, `${tranversePath.value}`)
-  shell.mkdir('-p', outputFolder)
+  shell.mkdir('-p', outputFolder)  // Create output directories
   shell.cd(tranversePath.key)
   var files = shell.find('.').filter(function(file) { return file.match(re) });
   files.forEach((file) => {
-    var outputFile = path.join(`${outputFolder}`, `${file}`)
-    //console.log(outputFile)
     shell.cd(outputFolder)
-    shell.cp(path.join(`${tranversePath.key}`,file), outputFolder)
+    var outputFile = path.join(`${outputFolder}`, `${file}`)
+    var exp = new RegExp(/[\w\-]*.[\w]*$/)
+    var searchIndex = outputFile.search(exp)
+    var intermediateDir = outputFile.substring(0, searchIndex);
+    shell.mkdir('-p', intermediateDir)   // Create intermediate directories
+    shell.cp('-R', path.join(`${tranversePath.key}`,file), outputFile)
   });
 });
 
